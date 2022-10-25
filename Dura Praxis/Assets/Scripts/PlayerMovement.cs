@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -27,12 +28,16 @@ public class PlayerMovement : MonoBehaviour
 
     bool isAttacking;
 
+  
+   
+
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         ridigbodyMC = GetComponent<Rigidbody2D>();
         ridigbodyMC.Sleep();
+      
     }
 
     void Start()
@@ -42,6 +47,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+ 
+
+
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
