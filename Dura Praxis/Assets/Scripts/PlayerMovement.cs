@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     bool isAttacking;
 
-  
+    float countSlider;
    
 
 
@@ -58,12 +58,29 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetButtonDown("Crouch"))
         {
             isCrouching = true;
+            animator.SetBool("IsSliding", false);
             animator.SetBool("IsCrouching", isCrouching);
+        }
+        else if(Input.GetButtonDown("Slider"))
+        {
+            countSlider = 0.5f;
+            animator.SetFloat("Movement", 0.0f);
+            animator.SetBool("IsSliding", true);
         }
         else if (Input.GetButtonUp("Crouch"))
         {
             isCrouching = false;
             animator.SetBool("IsCrouching", isCrouching);
+        }
+
+        if(countSlider > 0)
+        {
+            animator.SetFloat("Movement", 0.0f);
+            countSlider = countSlider - (1f * Time.deltaTime);
+            if(countSlider <= 0)
+            {
+                animator.SetBool("IsSliding", false);
+            }
         }
 
         if(transform.position.y <= axisY)
