@@ -4,71 +4,41 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float maxSpeed;
-    public float minHeight;
-    public float maxHeight;
-
-
-    
-    private Rigidbody rb;
-    private Animator anim;
-    private bool facingRight = false;
-    private Transform target;
-    private bool isDead = false;
-    private float zForce;
-    private float walkTimer;
-    private float currentSpeed;
+    public Transform player;
+    public float moveSpeed = 5f;
+    private Rigidbody2D rb;
+    private Vector2 movement;
+    private bool facingRight = true;
 
     void Start()
     {
-        rb.GetComponent<Rigidbody>();
-        anim= GetComponent<Animator>();
-        target = FindObjectOfType<Player>().transform;
+        rb = this.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        facingRight = (target.position.x < transform.position.x) ? false : true; 
-        if(facingRight) 
-        {
-            transform.eulerAngles = new Vector3(0,180,0);
-        }
-        else
+        facingRight = (player.transform.position.x < transform.position.x) ? false : true;
+        if (facingRight)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
-        walkTimer += Time.deltaTime;
+        else
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
 
-
+        Vector3 direction = player.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+      //  rb.rotation = angle;
+        direction.Normalize();
+        movement = direction;
     }
-
     private void FixedUpdate()
     {
-        if(!isDead) 
-        {
-            Vector3 targetDistance= target.position - transform.position;
-            float hForce = targetDistance.x / Mathf.Abs(targetDistance.x);
-
-            if (walkTimer >= Random.Range(1f, 2f))
-            {
-                zForce = Random.Range(-1, 2);
-                walkTimer = 0;
-
-            }
-            if (Mathf.Abs(targetDistance.x) < 1.5f)
-            {
-                hForce = 0;
-            }    
-            rb.velocity = new Vector3 (hForce * currentSpeed ,0 ,zForce * currentSpeed);
-            anim.SetFloat("Movement",Mathf.Abs(currentSpeed));
-
-        }
-        rb.position = new Vector3(rb.position.x, rb.position.y, Mathf.Clamp(rb.position.z, minHeight, maxHeight));
+        moveCharacter(movement);
     }
-
-    private void Reset()
+    void moveCharacter(Vector2 direction)
     {
-        currentSpeed = maxSpeed;
+        rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
     }
 }
