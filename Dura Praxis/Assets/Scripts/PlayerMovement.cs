@@ -29,7 +29,14 @@ public class PlayerMovement : MonoBehaviour
     bool isAttacking;
 
     float countSlider;
-   
+
+    public float slideCooldown;
+
+    private float lastSlide;
+
+    
+
+
 
 
     private void Awake()
@@ -63,6 +70,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(Input.GetButtonDown("Slider"))
         {
+            if(Time.time - lastSlide < slideCooldown)
+            {
+                return;
+            }
+            lastSlide = Time.time;
             countSlider = 0.5f;
             animator.SetFloat("Movement", 0.0f);
             animator.SetBool("IsSliding", true);
@@ -149,6 +161,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Onlanding()
     {
+        
         isJumping = false;
         ridigbodyMC.gravityScale = 0f;
         ridigbodyMC.Sleep();
