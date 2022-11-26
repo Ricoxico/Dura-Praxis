@@ -6,37 +6,22 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public int moveSpeed = 1;
-
-    float horizontal;
-
-    float vertical;
-
+    Rigidbody2D ridigbodyMC;
     Animator animator;
 
+    public int moveSpeed = 1;
+    float horizontal;
+    float vertical;
     bool facingRight;
-
-    bool isCrouching;
-
-    Rigidbody2D ridigbodyMC;
-
     float axisY;
-
+    bool isCrouching;
     bool isJumping;
-
     public float jumpForce = 200f;
-
     bool isAttacking;
-
     float countSlider;
-
     public float slideCooldown;
-
     private float lastSlide;
-
-    
-
-
+    public int hp = 100;
 
 
     private void Awake()
@@ -44,33 +29,27 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         ridigbodyMC = GetComponent<Rigidbody2D>();
         ridigbodyMC.Sleep();
-      
     }
 
     void Start()
     {
-        
     }
-
     void Update()
     {
- 
-
-
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
         animator.SetFloat("Movement", Mathf.Abs(horizontal != 0 ? horizontal : vertical));
 
-        if(Input.GetButtonDown("Crouch"))
+        if (Input.GetButtonDown("Crouch"))
         {
             isCrouching = true;
             animator.SetBool("IsSliding", false);
             animator.SetBool("IsCrouching", isCrouching);
         }
-        else if(Input.GetButtonDown("Slider"))
+        else if (Input.GetButtonDown("Slider"))
         {
-            if(Time.time - lastSlide < slideCooldown)
+            if (Time.time - lastSlide < slideCooldown)
             {
                 return;
             }
@@ -85,22 +64,22 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsCrouching", isCrouching);
         }
 
-        if(countSlider > 0)
+        if (countSlider > 0)
         {
             animator.SetFloat("Movement", 0.0f);
             countSlider = countSlider - (1f * Time.deltaTime);
-            if(countSlider <= 0)
+            if (countSlider <= 0)
             {
                 animator.SetBool("IsSliding", false);
             }
         }
 
-        if(transform.position.y <= axisY)
+        if (transform.position.y <= axisY)
         {
             Onlanding();
         }
 
-        if(Input.GetButton("Jump") && !isJumping)
+        if (Input.GetButton("Jump") && !isJumping)
         {
             axisY = transform.position.y;
             isJumping = true;
@@ -117,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton("Fire1"))
         {
             isAttacking = true;
-            if(vertical != 0 || horizontal != 0)
+            if (vertical != 0 || horizontal != 0)
             {
                 vertical = 0;
                 horizontal = 0;
@@ -127,29 +106,23 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-
-
-        if(horizontal != 0 && !isCrouching || vertical != 0 && !isCrouching)
+        if (horizontal != 0 && !isCrouching || vertical != 0 && !isCrouching)
         {
             Vector3 movement = new Vector3(horizontal * moveSpeed, vertical * moveSpeed, 0.0f);
             transform.position = transform.position + movement * Time.deltaTime;
-            
         }
         Flip(horizontal);
-
     }
 
     public void AlertObservers(string message)
     {
-        if(message == "AttackEnded")
-        {
+        if (message == "AttackEnded")
             isAttacking = false;
-        }
     }
 
-    private void Flip (float horizontal)
+    private void Flip(float horizontal)
     {
-        if(horizontal < 0 && !facingRight || horizontal > 0 && facingRight)
+        if (horizontal < 0 && !facingRight || horizontal > 0 && facingRight)
         {
             facingRight = !facingRight;
 
@@ -158,14 +131,26 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = scale;
         }
     }
-
     private void Onlanding()
     {
-        
         isJumping = false;
         ridigbodyMC.gravityScale = 0f;
         ridigbodyMC.Sleep();
         axisY = transform.position.y;
         animator.SetBool("IsJumping", isJumping);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Fino")
+        {
+            Heal();
+            Destroy(GameObject.FindWithTag("Fino"));
+        }
+    }
+
+    private void Heal()
+    {
+        hp = 100;
+        HpManager.instance.ChangeHealth(100);
     }
 }
