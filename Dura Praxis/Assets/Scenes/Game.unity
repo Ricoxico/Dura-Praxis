@@ -448,6 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpText: {fileID: 1336224176}
+  hp: 80
 --- !u!114 &999307404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -842,9 +843,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'placeholder ig
-
-'
+  m_Text: 
 --- !u!222 &1336224177
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1098,7 +1097,6 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 200
   slideCooldown: 1.5
-  hp: 100
 --- !u!95 &2100538199
 Animator:
   serializedVersion: 4

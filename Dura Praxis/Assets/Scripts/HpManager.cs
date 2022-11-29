@@ -8,7 +8,7 @@ public class HpManager : MonoBehaviour
     public static HpManager instance;
 
     public Text hpText;
-    int hp = 100;
+    public int hp = 100;
 
     private void Awake()
     {

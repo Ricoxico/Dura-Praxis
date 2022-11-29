@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     Rigidbody2D ridigbodyMC;
     Animator animator;
 
@@ -21,8 +20,7 @@ public class PlayerMovement : MonoBehaviour
     float countSlider;
     public float slideCooldown;
     private float lastSlide;
-    public int hp = 100;
-
+    int hp;
 
     private void Awake()
     {
