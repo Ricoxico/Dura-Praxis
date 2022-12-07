@@ -101,18 +101,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -131,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26d6274727afae04080bb22410f29295
-      internalID: -1982707127
+      spriteID: 416d5f770dcd436438b360b2bb0321d7
+      internalID: -111586144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_1
+      name: Enemy_Crouch
       rect:
         serializedVersion: 2
         x: 48
@@ -152,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1798891b1c24ac418deb5c6ccabec2b
-      internalID: -1450630759
+      spriteID: 73dc879b609e5cd45925692c16502b7e
+      internalID: -452037715
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_2
+      name: Enemy_Jump 1
       rect:
         serializedVersion: 2
         x: 284
@@ -173,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4d381c1560795942b2a020a047e97af
-      internalID: 592650101
+      spriteID: a40096b537c193040a5de5ed61854c8d
+      internalID: -1154713681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_3
+      name: Enemy_Jump 2
       rect:
         serializedVersion: 2
         x: 331
@@ -194,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cde448d54b791e409945006d3eea1c2
-      internalID: -199499611
+      spriteID: a242efbd000953f4397a89de901542b9
+      internalID: -884819812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_4
+      name: Enemy_Hit
       rect:
         serializedVersion: 2
         x: 5
@@ -215,14 +203,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 771248c17b9b6944f892c420f7b1a735
-      internalID: -1194823592
+      spriteID: c568d4acab1f17141b1c1f253132a253
+      internalID: -266104208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_5
+      name: Enemy_Attack
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 58
+        width: 31
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7164cd4fecc31d2498e51cf6218c2385
+      internalID: -764029670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_6
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 94
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3233bb7c0704d264eb8063e0728b3eba
+      internalID: 1088602582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_7
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 74
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b2e5e20e5095884da8829a692b1765a
+      internalID: -1157549418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Slide
       rect:
         serializedVersion: 2
         x: 49
@@ -236,8 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 336a05ef5e7ef5546a4a4f938477783f
-      internalID: -1944075852
+      spriteID: 1b1897f14e3cc0348bcae812235d1ab8
+      internalID: 1455549547
       vertices: []
       indices: 
       edges: []
@@ -257,8 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54072b9c8992b7443a20c321586f621d
-      internalID: -2029182165
+      spriteID: 16f6919d36f246c418c2cd77ec5d881a
+      internalID: -547406459
       vertices: []
       indices: 
       edges: []
@@ -267,7 +318,7 @@ TextureImporter:
       name: Enemy_Run 2
       rect:
         serializedVersion: 2
-        x: 46
+        x: 45
         y: 2
         width: 36
         height: 39
@@ -278,8 +329,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6daa7d0c967eab14cb7e7c232f02f473
-      internalID: -593966471
+      spriteID: 8e49b9d5265799144adaa52c9da8524a
+      internalID: -1305107561
       vertices: []
       indices: 
       edges: []
@@ -299,8 +350,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 518511e44e788704f81f22b2adc6d94c
-      internalID: 460685884
+      spriteID: 511f7eda9ab655241bb89c56ae28bef3
+      internalID: 2039559999
       vertices: []
       indices: 
       edges: []
@@ -320,8 +371,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7855d5e101677f847b886b2cc911828b
-      internalID: 100884740
+      spriteID: cd49e8249bea1ea43a7d4490c66b1210
+      internalID: 1954497382
       vertices: []
       indices: 
       edges: []
@@ -341,8 +392,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddcc8aff640e04844871af50581abc6c
-      internalID: 498079886
+      spriteID: 7b53ea1fb28f9a5458bf25ba46d715d3
+      internalID: -1522439611
       vertices: []
       indices: 
       edges: []
@@ -362,8 +413,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eff1dab97c785e048a31e7ec6b8a5e67
-      internalID: 1804399607
+      spriteID: 9dc3133a7e0be3d49a5c87702e3f7c39
+      internalID: -740872875
       vertices: []
       indices: 
       edges: []
@@ -383,8 +434,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eccb30a331fe785498f4bd6326e8990f
-      internalID: -1879212182
+      spriteID: b7432beec96cd274483aacfb407d9bd0
+      internalID: 1262949475
       vertices: []
       indices: 
       edges: []
@@ -404,8 +455,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2afd9cf051f9269469cc21b4348c9217
-      internalID: -1276280270
+      spriteID: c46c85713bb1f2c4f87f4b041b0dc165
+      internalID: 1458950413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Ranged
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 69
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc220aac6fab1d64e92090aeb590d91c
+      internalID: -818330793
       vertices: []
       indices: 
       edges: []
@@ -421,20 +493,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy_Run 1: -593966471
-      Enemy_Idle: -2029182165
-      Enemy_4: -1194823592
-      Enemy_Run 4: 100884740
-      Enemy_Run 7: -1879212182
-      Enemy_2: 592650101
-      Enemy_Run 6: 1804399607
-      Enemy_3: -199499611
-      Enemy_Run 8: -1276280270
-      Enemy_Run 3: 460685884
-      Enemy_Run 5: 498079886
-      Enemy_1: -1450630759
-      Enemy_5: -1944075852
-      Enemy_Run 2: 460685884
+      Enemy_Ranged: -818330793
+      Enemy_6: -1157549418
+      Enemy_Run 1: -547406459
+      Enemy_7: 1455549547
+      Enemy_Idle: -111586144
+      Enemy_Run 4: 1954497382
+      Enemy_Run 7: 1262949475
+      Enemy_Crouch: -452037715
+      Enemy_Jump 2: -884819812
+      Enemy_Jump 1: -1154713681
+      Enemy_Attack: -764029670
+      Enemy_Run 6: -740872875
+      Enemy_Slide: 1455549547
+      Enemy_Run 8: 1458950413
+      Enemy_Hit: -266104208
+      Enemy_Run 3: 2039559999
+      Enemy_Run 5: -1522439611
+      Enemy_Run 2: -1305107561
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
