@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("Movement", Mathf.Abs(horizontal != 0 ? horizontal : vertical));
 
-        if (Input.GetButtonDown("Crouch"))
+        if (Input.GetButtonDown("Crouch") && (vertical == 0 && horizontal == 0))
         {
             isCrouching = true;
             animator.SetBool("IsSliding", false);
@@ -72,10 +72,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (transform.position.y <= axisY)
+        if (transform.position.y <= axisY && isJumping)
         {
             Onlanding();
         }
+            
 
         if (Input.GetButton("Jump") && !isJumping)
         {
@@ -83,10 +84,9 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
             ridigbodyMC.gravityScale = 1.5f;
             ridigbodyMC.WakeUp();
-            ridigbodyMC.AddForce(new Vector2(transform.position.x + 7.5f, jumpForce));
+            ridigbodyMC.AddForce(new Vector2(0, jumpForce));
             animator.SetBool("IsJumping", isJumping);
         }
-
     }
 
     private void FixedUpdate()
