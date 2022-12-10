@@ -7,8 +7,8 @@ public class HpManager : MonoBehaviour
 {
     public static HpManager instance;
 
-    public Text hpText;
-    public int hp = 100;
+    [SerializeField] Text hpText;
+    [SerializeField] int hp = 100;
 
     private void Awake()
     {
