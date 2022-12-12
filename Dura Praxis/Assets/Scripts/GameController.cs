@@ -23,17 +23,17 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startTime == true)
-        {
-            timeCounter -= Time.deltaTime;
-
-            if (timeCounter <= timeOut)
-            {
-
-              SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
-
-            }
-        }
+    //    if (startTime == true)
+    //    {
+    //        timeCounter -= Time.deltaTime;
+    //
+    //        if (timeCounter <= timeOut)
+    //        {
+    //
+    //          SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
+    //
+    //        }
+    //    }
 
         //timerText.autoSizeTextContainer = true;
         timerText.text = (("Time Left: ") + (int)timeCounter + " sec").ToString();

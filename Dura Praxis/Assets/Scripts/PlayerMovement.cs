@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody2D ridigbodyMC;
+    Rigidbody2D rb;
     Animator animator;
 
     [SerializeField] int moveSpeed = 1;
@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private float axisY;
     private bool isCrouching;
     private bool isJumping;
+    private bool jump;
     [SerializeField] float jumpForce = 200f;
     private  bool isAttacking;
     private float countSlider;
@@ -25,8 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        ridigbodyMC = GetComponent<Rigidbody2D>();
-        ridigbodyMC.Sleep();
+        rb = GetComponent<Rigidbody2D>();
+        rb.Sleep();
     }
 
     void Start()
@@ -80,11 +81,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButton("Jump") && !isJumping)
         {
-            axisY = transform.position.y;
+       //     axisY = transform.position.y;
             isJumping = true;
-            ridigbodyMC.gravityScale = 1.5f;
-            ridigbodyMC.WakeUp();
-            ridigbodyMC.AddForce(new Vector2(0, jumpForce));
+            jump = true;
+            rb.gravityScale = 1.5f;
+            rb.WakeUp();
             animator.SetBool("IsJumping", isJumping);
         }
     }
@@ -110,6 +111,12 @@ public class PlayerMovement : MonoBehaviour
             transform.position = transform.position + movement * Time.deltaTime;
         }
         Flip(horizontal);
+
+        if (jump)
+        {
+            jump = false;
+            rb.AddForce(Vector3.up * jumpForce);
+        }
     }
 
     public void AlertObservers(string message)
@@ -132,8 +139,8 @@ public class PlayerMovement : MonoBehaviour
     private void Onlanding()
     {
         isJumping = false;
-        ridigbodyMC.gravityScale = 0f;
-        ridigbodyMC.Sleep();
+        rb.gravityScale = 0f;
+        rb.Sleep();
         axisY = transform.position.y;
         animator.SetBool("IsJumping", isJumping);
     }
