@@ -12,7 +12,7 @@ public class Boss : Enemy {
 
 	// Use this for initialization
 	void Awake () {
-		Invoke("ThrowBoomerang", Random.Range(minBoomerangTime, maxBoomerangTime));
+		//Invoke("ThrowBoomerang", Random.Range(minBoomerangTime, maxBoomerangTime));
 		music = FindObjectOfType<MusicController>();
 		music.PlaySong(music.bossSong);
 	}
@@ -21,17 +21,17 @@ public class Boss : Enemy {
 	{
 		if (!isDead)
 		{
-			anim.SetTrigger("Boomerang");
-			GameObject tempBoomerang = Instantiate(boomerang, transform.position, transform.rotation);
-			if (facingRight)
-			{
-				tempBoomerang.GetComponent<Boomerang>().direction = 1;
-			}
-			else
-			{
-				tempBoomerang.GetComponent<Boomerang>().direction = -1;
-			}
-			Invoke("ThrowBoomerang", Random.Range(minBoomerangTime, maxBoomerangTime));
+			anim.SetTrigger("Attack");
+			//GameObject tempBoomerang = Instantiate(boomerang, transform.position, transform.rotation);
+			//if (facingRight)
+			//{
+			//	tempBoomerang.GetComponent<Boomerang>().direction = 1;
+			//}
+			//else
+			//{
+			//	tempBoomerang.GetComponent<Boomerang>().direction = -1;
+			//}
+			//Invoke("ThrowBoomerang", Random.Range(minBoomerangTime, maxBoomerangTime));
 		}
 	}
 
@@ -44,6 +44,6 @@ public class Boss : Enemy {
 
 	void LoadScene()
 	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
 	}
 }
